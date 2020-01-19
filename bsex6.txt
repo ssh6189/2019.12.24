@@ -1,0 +1,41 @@
+#exam6.py
+
+html_doc = """
+
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+
+      <meta charset='utf-8'>
+
+      <title>Test BeautifulSoup</title>
+
+   </head>
+
+   <body>
+
+      <section>
+
+        <h1>테스트</h1>
+
+        <div>
+
+          <ol>
+
+            <li>리스트1</li>
+
+            <li>리스트2</li>
+
+            <li>리스트3</li>
+
+</div>
+
+        <aside>기타 등등</aside>
+
+      </section>
+
+   </body>
+
+</html> """ 

@@ -1,0 +1,55 @@
+#exam12.py
+
+html="""
+
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+     <meta charset='utf-8'>
+
+     <title>Test BeautifulSoup</title>
+
+  </head>
+
+  <body>
+
+     <p class="pstyle black"  align="left"> text contents 1 </p>
+
+     <p class="pstyle yellow" align="right"> text contents 2 </p>
+
+     <p class="pstyle red"    align="center"> text contents 3 </p>
+
+     <img src="http://unico2013.dothome.co.kr/image/flower.jpg" width="500">
+
+  </body>
+
+</html> """
+
+from bs4 import BeautifulSoup
+
+bs = BeautifulSoup(html,'html.parser')
+
+ptag = bs.find('p')
+
+print(type(ptag))
+
+print(ptag['class'])
+
+print(ptag['align'])
+
+print(ptag.attrs)
+
+imgtag = bs.find('img')
+
+print(type(imgtag))
+
+print(imgtag['src'])
+
+print(imgtag['width'])
+
+print(imgtag.attrs)
+
+ 

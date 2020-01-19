@@ -1,0 +1,20 @@
+import urllib2
+
+from bs4 import BeautifulSoup
+
+quote_page = 'http://www.bloomberg.com/quote/SPX:IND'
+page = urllib2.urlopen(quote_page)
+soup = BeautifulSoup(page, 'html.parser')
+name_box = soup.find('h1', attrs={'class': 'name'})
+name = name_box.text.strip()   # strip() is used to remove starting and trailing
+print( name )
+Price_box = soup.find('div', attrs={'class':'price'})
+Price = price_box.text
+Print(price)
+
+htmlString = ''' <HTML>
+  <HEAD><TITLE>My document</TITLE></HEAD>
+  <BODY>Main text.</BODY></HTML>
+'''
+Soup = BeautifulSoup(htmlString)
+Soup.get_text()

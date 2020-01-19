@@ -1,0 +1,79 @@
+
+#exam7.py
+
+html_doc = """
+
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+
+      <meta charset='utf-8'>
+
+      <title>Test BeautifulSoup</title>
+
+   </head>
+
+   <body>
+
+      <section>
+
+        <h1>테스트</h1>
+
+        <div>
+
+          <ol>
+
+            <li>리스트1</li>
+
+            <li>리스트2</li>
+
+            <li>리스트3</li>
+
+</div>
+
+        <aside>기타 등등</aside>
+
+      </section>
+
+   </body>
+
+</html> """ 
+
+from bs4 import BeautifulSoup
+
+bs=BeautifulSoup(html_doc, 'html.parser')
+
+t1=bs.section.div.next_element
+
+t2=t1.next_element; t3=t2.next_element
+
+t4=t3.next_element; t5=t4.next_element
+
+print(t1.name); print(t2.name)
+
+print(t3.name); print(t4.name)
+
+print(t5.name)
+
+print('-----------------------------')
+
+print(bs.section.div.children)
+
+print('자식 DOM 객체의 개수 : ', len(tuple(bs.section.div.children)))
+
+count = 1
+
+for data in bs.section.div.children:
+
+    print('자식 ',count,' : ',repr(data))
+
+    count = count+1
+
+print('-----------------------------')
+
+print(bs.section.div.descendants)
+
+print('자손 DOM 객체의 개수 : ', len(tuple(bs.section.div.descendants)))
+

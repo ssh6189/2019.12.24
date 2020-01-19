@@ -1,0 +1,52 @@
+#exam11.py
+
+html="""
+
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+     <meta charset='utf-8'>
+
+     <title>Test BeautifulSoup</title>
+
+  </head>
+
+  <body>
+
+     <p align="center">     text contents가나다 </p>
+
+     <img src="http://unico2013.dothome.co.kr/image/flower.jpg" 
+
+                             width="500">
+
+  </body>
+
+</html> """
+
+from bs4 import BeautifulSoup
+
+bs = BeautifulSoup(html, 'html.parser')
+
+ptag = bs.find('p')
+
+print(ptag.name)
+
+print("----------------------------------------")
+
+print(ptag.string)
+
+print(ptag.string.strip())
+
+print("----------------------------------------")
+
+print(ptag.text)
+
+print(ptag.text.strip())
+
+print("----------------------------------------")
+
+print(ptag.get_text(strip=True))
+ 

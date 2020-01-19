@@ -1,0 +1,70 @@
+from bs4 import BeautifulSoup
+import re
+import requests
+
+j = 0
+
+req1 = requests.get('https://movie.daum.net/moviedb/main?movieId=133855')
+req2 = requests.get('https://movie.daum.net/moviedb/main?movieId=127240')
+req3 = requests.get('https://movie.daum.net/moviedb/main?movieId=128397')
+req4 = requests.get('https://movie.daum.net/moviedb/main?movieId=93004')
+req5 = requests.get('https://movie.daum.net/moviedb/main?movieId=135716')
+
+html1 = req1.text
+html2 = req2.text
+html3 = req3.text
+html4 = req4.text
+html5 = req5.text
+
+soup1 = BeautifulSoup(html1, 'html.parser')
+soup2 = BeautifulSoup(html2, 'html.parser')
+soup3 = BeautifulSoup(html3, 'html.parser')
+soup4 = BeautifulSoup(html4, 'html.parser')
+soup5 = BeautifulSoup(html5, 'html.parser')
+
+titles1 = soup1.select('.tit_rel')
+points1 = soup1.select('em.emph_grade')
+reviews1 = soup1.select('li > div > p.review_info')
+
+titles2 = soup2.select('.moive')
+points2 = soup2.select('td.title > div > em')
+reviews2 = soup2.select('td.title')
+
+titles3 = soup3.select('.moive')
+points3 = soup3.select('td.title > div > em')
+reviews3 = soup3.select('td.title')
+
+titles4 = soup4.select('.moive')
+points4 = soup4.select('td.title > div > em')
+reviews4 = soup4.select('td.title')
+
+titles5 = soup5.select('.moive')
+points5 = soup5.select('td.title > div > em')
+reviews5 = soup5.select('td.title')
+
+movie_title1=[]
+movie_point1=[]
+movie_review1=[]
+
+for dom in titles1 :
+     movie_title1.append(dom.text)
+
+for dom in points1 :
+     movie_point1.append(dom.text)
+
+for dom in reviews1 :
+    # content = dom.contents[6]
+     #content = re.sub("[\n\t]", "", content)
+     #content = re.sub("신고", "",content)
+        
+     movie_review1.append(dom.text)
+
+print("영화제목:", movie_title1[0])
+
+for i in range(10):
+    print("평점:", movie_point1[i])
+    print("리뷰:", movie_review1[i])
+    print('--------')
+    
+
+

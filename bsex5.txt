@@ -1,0 +1,65 @@
+# exam5.py
+
+html_doc = """
+
+<!DOCTYPE html>
+
+<html>
+
+     <head>
+
+          <meta charset='utf-8'>
+
+# exam5.py
+
+html_doc = """
+
+<!DOCTYPE html>
+
+<html>
+
+     <head>
+
+          <meta charset='utf-8'>
+
+          <title>Test BeautifulSoup</title>
+
+     </head>
+
+     <body>
+
+          <p>
+
+              Beautiful Soup은 HTML 및 XML 파일에서
+
+              데이터를 추출하기 위한 
+
+              파이썬 라이브러리입니다.  
+
+              <i>웹 크롤링</i>                       
+
+          </p>
+
+     </body>
+
+</html> """
+
+from bs4 import BeautifulSoup
+
+bs = BeautifulSoup(html_doc, 'html.parser')
+
+print('[ strings]')
+
+print(type(bs.p.strings), ':', bs.p.strings)
+
+for data in bs.p.strings:
+
+     print('[', data, ']')
+
+print('[ stripped_strings]')
+
+print(type(bs.p.stripped_strings), ':', bs.p.stripped_strings)
+
+for data in bs.p.stripped_strings:
+
+     print('[', data, ']')

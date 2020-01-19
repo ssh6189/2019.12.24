@@ -1,0 +1,66 @@
+#exam9.py
+
+html_doc="""
+
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+      <meta charset='utf-8'>
+
+      <title>Test BeautifulSoup</title>
+
+  </head>
+
+  <body>
+
+     <section>
+
+       <p align="center"> text contents </p>
+
+       <p align="right">  text contents 2 </p>
+
+       <p align="left">   text contents 3 </p>
+
+       <img src="http://unico2013.dothome.co.kr/image/flower.jpg" width="500">
+
+       <div>
+
+          <p>text contents 4</p> 
+
+       </div>
+
+</section>
+
+  </body>
+
+</html> ""
+
+from bs4 import BeautifulSoup
+
+bs = BeautifulSoup(html_doc, 'html.parser')
+
+body_tag = bs.find('section')
+
+list1 = body_tag.find_all(['p','img'])
+
+for tag in list1:
+
+    print(tag) 
+
+print("------------------------------------------")
+
+body_tag = bs.find('div')
+
+list2 = body_tag.find_all('p')
+
+for tag in list2:
+
+    print(tag)
+
+ 
+
+
+ 
